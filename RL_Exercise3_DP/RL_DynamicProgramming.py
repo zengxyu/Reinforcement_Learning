@@ -57,7 +57,7 @@ def is_attempt_leave_grid(attempt_s):
     return False
 
 
-def get_policy_prob_distribution():
+def get_init_policy_prob_distribution():
     # the prob distribution that action be taken under policy pi
     # use a data structure (81x8) array to represent the probability distribution under policy pi
     # policy pi: action down : 0.5, up/left/right:0.5/3, others: 0
@@ -157,40 +157,6 @@ def value_iteration():
         policy[s] = np.eye(len(A))[action_argmax]
 
 
-# def value_iteration_with_non_deterministic_environment():
-#     # the value iteration algorithm with a non deterministic policy.
-#     theta = 0.01
-#     while True:
-#         delta = 0
-#         for s in relevant_S:
-#             v = V[s].copy()
-#             for a in A:
-#                 sum_over_next_state = 0
-#                 for s_next, reward, probability in next_state_reward_probabilities[s][a]:
-#                     sum_over_next_state += probability * (reward + gamma * V[s_next])
-#                 Q[s][a] = sum_over_next_state
-#             # non deterministic
-#             argmax = np.argmax(Q[s])
-#             argmax_l45 = (argmax - 1) % len(A)
-#             argmax_r45 = (argmax + 1) % len(A)
-#             V[s] = 0.15 * Q[s][argmax_l45] + 0.7 * Q[s][argmax] + 0.15 * Q[s][argmax_r45]
-#             delta = max(delta, abs(v - V[s]))
-#         if delta < theta:
-#             break
-#     # output a non deterministic policy
-#     for s in relevant_S:
-#         argmax = np.argmax(Q[s])
-#         argmax_l45 = (argmax - 1) % len(A)
-#         argmax_r45 = (argmax + 1) % len(A)
-#         r = np.random.random()
-#         if r < 0.15:
-#             policy[s] = np.eye(len(A))[argmax_l45]
-#         elif 0.15 <= r < 0.85:
-#             policy[s] = np.eye(len(A))[argmax]
-#         else:
-#             policy[s] = np.eye(len(A))[argmax_r45]
-
-
 def show_state_values(values):
     print("State values: ")
     for i in range(W_grid):
@@ -223,7 +189,7 @@ def show_optimal_policy():
 def task01():
     print("Task 01 : ===========================Start.")
     get_next_state_reward_probability(True)
-    get_policy_prob_distribution()
+    get_init_policy_prob_distribution()
     policy_evaluation()
     show_state_values(V)
 
@@ -231,7 +197,7 @@ def task01():
 def task02():
     print("Task 02 : ===========================Start.")
     get_next_state_reward_probability(True)
-    get_policy_prob_distribution()
+    get_init_policy_prob_distribution()
     policy_iteration()
     show_optimal_policy()
 
@@ -239,7 +205,7 @@ def task02():
 def task03():
     print("Task 03 : ===========================Start.")
     get_next_state_reward_probability(True)
-    get_policy_prob_distribution()
+    get_init_policy_prob_distribution()
     value_iteration()
     show_state_values(V)
     show_optimal_policy()
@@ -251,7 +217,7 @@ def task04():
     # Specifically, the agent moves with probability 0.7 into the desired direction, but with probability 0.15
     # deviates 45° to the left and with probability 0.15 deviates 45° to the right of the desired direction.
     get_next_state_reward_probability(False)
-    get_policy_prob_distribution()
+    get_init_policy_prob_distribution()
     value_iteration()
     show_state_values(V)
     show_optimal_policy()
