@@ -52,52 +52,11 @@ def load_grid_world(conf_file):
     return grid_world
 
 
-def get_next_state_reward_probability():
-    s_next = None
-    reward_s_a_sn = None
-    prob_s_a_sn = None
-    # assign value to relevant_s, declare that it is global variable
-    global relevant_S
-    relevant_S = [s for s in S if not (s in obstacle_states or s in terminal_states)]
-
-    for s in relevant_S:
-        for a in A:
-            next_state_reward_probability = []
-            # when in state s and action taken is a , the next state is ? ,the reward is ?, the probability is ?
-            attempt_s = (s[0] + moving_direction[a][0], s[1] + moving_direction[a][1])
-            if is_attempt_leave_grid(attempt_s):
-                s_next = s
-                reward_s_a_sn = -5
-                prob_s_a_sn = 1
-            else:
-                if attempt_s in terminal_states:
-                    s_next = attempt_s
-                    reward_s_a_sn = 100
-                    prob_s_a_sn = 1
-                elif attempt_s in star_states:
-                    s_next = attempt_s
-                    reward_s_a_sn = 5
-                    prob_s_a_sn = 1
-                elif attempt_s in obstacle_states:
-                    s_next = s
-                    reward_s_a_sn = -20
-                    prob_s_a_sn = 1
-                elif attempt_s in empty_states:
-                    s_next = attempt_s
-                    reward_s_a_sn = -1
-                    prob_s_a_sn = 1
-            next_state_reward_probability.append([s_next, reward_s_a_sn, prob_s_a_sn])
-            # print(next_state_reward_probability)
-            # next states can be multiple, when in the state s and taing action a, but in this game, next state is the only one
-            # 9x9 x 8 x 1x3
-            next_state_reward_probabilities[s][a] = next_state_reward_probability
 
 
-def is_attempt_leave_grid(attempt_s):
-    if attempt_s[0] < 0 or attempt_s[1] < 0 or attempt_s[0] > H_grid - 1 or attempt_s[1] > W_grid - 1:
-        return True
-    return False
+
+
 
 
 load_grid_world(grid_world_config)
-get_next_state_reward_probability()
+
