@@ -218,7 +218,7 @@ def task04():
 
 if __name__ == "__main__":
     # run the following four methods respectively
-    task01()
+    # task01()
     # task02()
     # task03()
-    # task04()
+    task04()

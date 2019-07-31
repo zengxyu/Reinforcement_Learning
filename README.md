@@ -1,2 +1,5 @@
 # Reinforcement_Learning
-Some coding practice for understanding reinforment learning,inluding multibandit,dynamic programming,monte karlo,time difference...
+Some coding practice for understanding reinforcement learning,
+including multi bandit,dynamic programming,monte carlo,time difference...
+
+Learn and understand RL by simple grid world
