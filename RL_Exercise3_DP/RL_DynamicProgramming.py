@@ -1,4 +1,4 @@
-from GridWorld import *
+from RL_Exercise3_DP.GridWorld import *
 
 policy = np.zeros([W_grid, H_grid, len(A)])  # policy prob distribution, which will be in 9x9x8 size
 four_A = [1, 3, 5, 7]
@@ -17,8 +17,6 @@ def get_next_state_reward_probability(deterministic):
         probabilities = [0.15, 0.7, 0.15]
 
     # assign value to relevant_s, declare that it is global variable
-    global relevant_S
-    relevant_S = [s for s in S if not (s in obstacle_states or s in terminal_states)]
 
     for s in relevant_S:
         for a in A:
@@ -225,7 +223,7 @@ def task04():
 
 if __name__ == "__main__":
     # run the following four methods respectively
-    # task01()
+    task01()
     # task02()
     # task03()
-    task04()
+    # task04()

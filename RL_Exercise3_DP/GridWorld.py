@@ -49,14 +49,9 @@ def load_grid_world(conf_file):
             star_states.append(s)
         else:
             empty_states.append(s)
+    global relevant_S
+    relevant_S = [s for s in S if not (s in obstacle_states or s in terminal_states)]
     return grid_world
 
 
-
-
-
-
-
-
 load_grid_world(grid_world_config)
-
