@@ -1,4 +1,4 @@
-from RL_Exercise_TD.GridWorld import *
+from RL_Exercise4_TD.GridWorld import *
 
 policy = np.zeros([H_grid, W_grid, len(A)])  # policy prob distribution, which will be in 9x9x8 size
 
