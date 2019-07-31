@@ -87,11 +87,6 @@ def policy_evaluation():
         if delta < theta:
             break
 
-        # if i % 10 == 0:
-        #     print()
-        #     print("i == ", i, " 次迭代")
-        #     print_values(V)
-
 
 def policy_improvement():
     policy_stable = True
