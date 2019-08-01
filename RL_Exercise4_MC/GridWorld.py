@@ -76,7 +76,6 @@ def set_reward_distribution():
         R_distributes[s] = -1
     for s in start_states:
         R_distributes[s] = -1
-    print(R_distributes)
 
 
 def generate_one_episode(policy, s_start, a_start=None):
