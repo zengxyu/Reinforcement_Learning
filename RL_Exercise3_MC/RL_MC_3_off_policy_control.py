@@ -59,7 +59,7 @@ def off_policy_mc_control(first_visit):
                 # traverse inversely
                 for reward in reward_list[::-1]:
                     # this loop are computed repetitively. It can be optimized
-                    return_gain = return_gain + gamma * reward
+                    return_gain = reward + gamma * return_gain
                 N[s][a] = N[s][a] + weight * return_gain
                 D[s][a] = D[s][a] + weight
                 Q[s][a] = N[s][a] / D[s][a]

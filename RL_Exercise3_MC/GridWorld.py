@@ -13,15 +13,13 @@ S = [(i, j) for i in range(H_grid) for j in range(W_grid)]  # 35 x 2
 R_distributes = np.zeros((H_grid, W_grid))
 # discounting factor
 gamma = 0.9
-# step size
-alpha = 0.2
 # there are 8 moving direction in each state s, this is different from actions in A,
 # eg. If the action is 1, but the moving direction may be not (-1,0).
 # It could be(-1, -1)or (-1, 0)or (-1, 1), which depends on the model of the environment
 moving_direction = [(-1, -1), (-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1),
                     (0, -1)]  # [NW, N, NE, E, SE, S, SW, W]
 deviations = [-1, 0, 1]
-deviation_probabilities = [0.2, 0.6, 0.2]
+deviation_probabilities = [0.2, 0.6, 0.2]  # transition probability
 
 # different types of state
 terminal_states = []
@@ -71,7 +69,7 @@ def set_reward_distribution():
     for s in terminal_states:
         R_distributes[s] = 1000
     for s in obstacle_states:
-        R_distributes[s] = -10
+        R_distributes[s] = -100
     for s in empty_states:
         R_distributes[s] = -1
     for s in start_states:
@@ -131,7 +129,7 @@ def get_valid_state(attempt_s):
     :param attempt_s:
     :return: s_next
     """
-    s_next = (np.clip(attempt_s[0], 0, H_grid-1), np.clip(attempt_s[1], 0, W_grid-1))
+    s_next = (np.clip(attempt_s[0], 0, H_grid - 1), np.clip(attempt_s[1], 0, W_grid - 1))
     return s_next
 
 

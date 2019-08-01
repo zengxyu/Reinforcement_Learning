@@ -37,7 +37,7 @@ def on_policy__mc_control(first_visit):
                 # traverse inversely
                 for reward in reward_list[::-1]:
                     # this loop are computed repetitively. It can be optimized
-                    return_gain = return_gain + gamma * reward
+                    return_gain = reward + gamma * return_gain
                 # Append R the Returns(s)
                 returns[s[0]][s[1]][a].append(return_gain)
                 # set Q[s,a] using the average of the returns[s,a]

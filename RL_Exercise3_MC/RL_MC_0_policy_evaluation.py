@@ -34,6 +34,8 @@ def policy_evaluation(first_visit):
         for j, [reward, state, action] in enumerate(episode):
             # if it is the last state in this episode, break
             if j == len(episode) - 1:
+                # if state in terminal_states:
+                #     print("there is terminal state existing")
                 break
             # if it is first-visit method and it is the first occurrence of s, then continue
             # or if it is every-visit method, then continue
@@ -46,7 +48,7 @@ def policy_evaluation(first_visit):
                 # traverse inversely
                 for reward in reward_list[::-1]:
                     # this loop are computed repetitively. It can be optimized
-                    return_gain = return_gain + gamma * reward
+                    return_gain = reward + gamma * return_gain
                 # Append R the Returns(s)
                 returns[state[0]][state[1]].append(return_gain)
                 # compute the V[s]
@@ -55,5 +57,5 @@ def policy_evaluation(first_visit):
     return V.copy()
 
 
-V = policy_evaluation(first_visit=True)
+V = policy_evaluation(first_visit=False)
 show_state_values(V)

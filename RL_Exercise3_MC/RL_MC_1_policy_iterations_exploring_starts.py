@@ -23,7 +23,6 @@ def mc_policy_iteration_with_exploring_starts(first_visit):
             # generate an episode starting from s0,a0
             s0 = relevant_S[np.random.randint(0, len(relevant_S))]
             a0 = A[np.random.randint(0, len(policy[s0]))]
-
             episode = generate_one_episode(policy=policy, s_start=s0, a_start=a0)
             # if the generated episode is none, regenerate the episode
             if episode is not None:
@@ -40,7 +39,7 @@ def mc_policy_iteration_with_exploring_starts(first_visit):
                 # traverse inversely
                 for reward in reward_list[::-1]:
                     # this loop are computed repetitively. It can be optimized
-                    return_gain = return_gain + gamma * reward
+                    return_gain = reward + gamma * return_gain
                 # Append R the Returns(s)
                 returns[s[0]][s[1]][a].append(return_gain)
                 # set Q[s,a] using the average of the returns[s,a]
