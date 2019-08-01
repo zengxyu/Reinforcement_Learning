@@ -1,5 +1,5 @@
-from RL_Exercise4_MC.GridWorld import *
-from RL_Exercise4_MC.Display_util import *
+from RL_Exercise3_MC.GridWorld import *
+from RL_Exercise3_MC.Display_util import *
 
 
 def off_policy_mc_control(first_visit):

@@ -1,5 +1,5 @@
-from RL_Exercise4_MC.GridWorld import *
-from RL_Exercise4_MC.Display_util import *
+from RL_Exercise3_MC.GridWorld import *
+from RL_Exercise3_MC.Display_util import *
 
 
 def mc_policy_iteration_with_exploring_starts(first_visit):
