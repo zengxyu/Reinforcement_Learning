@@ -1,12 +1,14 @@
 from RL_Exercise3_MC.GridWorld import *
 from RL_Exercise3_MC.Display_util import *
 
-
-def on_policy__mc_control(first_visit):
+"""
     # in the realistic environment, it is impossible to start from a exploring start state and action
     # how to get rid of exploring starts.
     # e-greedy policy works
+"""
 
+
+def on_policy__mc_control(first_visit):
     # initialize
     # arbitrary action value
     Q = np.zeros((H_grid, W_grid, len(A)))

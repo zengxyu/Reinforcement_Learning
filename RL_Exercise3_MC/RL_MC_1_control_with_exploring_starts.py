@@ -1,14 +1,17 @@
 from RL_Exercise3_MC.GridWorld import *
 from RL_Exercise3_MC.Display_util import *
 
-
-def mc_policy_iteration_with_exploring_starts(first_visit):
+"""
     # if we have the environmental model, then we know the transition probability and reward.
     # so when we compute state value, we can get action value, to optimize the policy.
     #
     # if we don't have the environmental model, we need to compute the action values.
     # if we start from start states,then some of the state-pair won't appear, so the solution is exploring start
 
+"""
+
+
+def mc_policy_iteration_with_exploring_starts(first_visit):
     # arbitrary action value
     Q = np.zeros((H_grid, W_grid, len(A)))
     # init policy

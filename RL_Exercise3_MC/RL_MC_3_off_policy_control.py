@@ -3,6 +3,7 @@ from RL_Exercise3_MC.Display_util import *
 
 # set the format of print array
 np.set_printoptions(formatter={'float': '{: 0.2f}'.format, 'int': '{:d}'.format})
+
 """
     # behavior policy generates behavior in environment
     # estimation policy is policy being learned about
