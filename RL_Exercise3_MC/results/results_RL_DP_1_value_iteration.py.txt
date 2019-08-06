@@ -1,0 +1,23 @@
+RL_DP_0_value_iteration.py
+
+This is the real optimal policy, knowing the full model of environment
+Optimal policy :
+Output optimal policy with arrows:
+   →        ↘        ↓        ●        ●        ●        ↖
+   ↗        ↗        ↘        ↓        ●        ↑        ●
+   ↑        ●        ●        ↘        ●        ↑        ↖
+   ↖        ←        ●        ↘        ↓        ●        ↗
+   ↑        ↖        ●        →        ↘        →        ↗
+Optimal policy ==================================END
+
+The state values of optimal policy after value iteration:
+State values:
+  50.233   57.959   55.985    0.000    0.000    0.000  975.366
+  48.842   52.791   72.925   45.021    0.000  755.366    0.000
+  43.669    0.000    0.000  158.557    0.000  367.298  453.211
+  37.124   32.594    0.000  239.905  252.174    0.000  396.722
+  31.596   30.601    0.000  246.029  280.053  320.338  347.122
+State values ==================================END
+
+The problem is, however, that value iteration is usually not an option in real-world applications.
+

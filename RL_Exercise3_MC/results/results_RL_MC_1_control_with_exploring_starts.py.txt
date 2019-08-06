@@ -1,0 +1,78 @@
+We need to estimate Q[s,a].
+because Without the environmental model, Q[s,a] can be got by one step ahead knowing V[s].
+
+How to estimate Q[s,a]
+Q[s,a] = average(Returns(s,a))
+
+Problems:
+some of s,a pair wouldn't appear, because policy pi[s] = argmaxQ[s,a],
+policy pi instruct the generation of a in state s. That is, a = argmaxQ[s,a].
+so some of s,a pair wouldn't appear.
+
+Solutions:
+Exploring starts.
+
+Run 1st round:
+The average length of episodes: 8.3297304964539
+The average total reward of episode: 213.94143262411347
+Time step i:  144000 ; Converging or not:  False ;delta:  0.10203567054890073
+State values:
+  46.245   55.026   62.066    0.000    0.000    0.000  974.118
+  43.162   47.213   56.230   82.658    0.000  756.766    0.000
+  35.274    0.000    0.000  173.729    0.000  453.031  363.111
+  27.877   17.505    0.000  242.539  279.752    0.000  376.680
+  18.387   18.345    0.000  245.338  271.130  313.357  315.942
+State values ==================================END
+
+State Counts:
+24402.000 43067.000 33159.000 3059.000 1476.000 36665.000 13951.000
+23746.000 23076.000 28599.000 40556.000 3013.000 43787.000 32163.000
+11608.000 4595.000 18440.000 34793.000 4465.000 43845.000 24634.000
+18287.000 3187.000 11692.000 11018.000 37967.000 12962.000 24041.000
+16269.000 6029.000 4455.000 7111.000 11836.000 18407.000 17961.000
+State Counts ==================================END
+
+The average length of episodes: 8.267761904761905
+The average total reward of episode: 213.7120612244898
+Optimal policy :
+policy shape :  (5, 7, 8)
+Output optimal policy with arrows:
+   ↘        →        ↓        ●        ●        ●        ↖
+   ↑        ↗        ↘        ↙        ●        ↗        ●
+   ↑        ●        ●        ↓        ●        ↗        ↑
+   ↖        ↙        ●        ↘        →        ●        ↑
+   ↖        ←        ●        →        ↘        →        →
+Optimal policy ==================================END
+
+Run 2nd round:
+Time step i:  2025000 ; Converging or not:  True ;delta:  0.009445385464267986
+The average length of episodes: 6.4977471604938275
+The average total reward of episode: 212.33629580246912
+The number of correct policy: 13 /24
+State values:
+  43.426   53.798   62.459    0.000    0.000    0.000  975.421
+  38.890   47.026   53.563   83.891    0.000  755.896    0.000
+  35.285    0.000    0.000  174.797    0.000  452.554  367.489
+  25.236   22.377    0.000  244.700  281.632    0.000  375.756
+  21.755   19.309    0.000  250.416  277.831  319.090  328.710
+State values ==================================END
+
+State Counts:
+345587.000 521072.000 459939.000 42733.000 21040.000 513699.000 194094.000
+368298.000 289215.000 408578.000 295063.000 42391.000 614125.000 451315.000
+160273.000 157782.000 227873.000 535787.000 63508.000 605083.000 345505.000
+287726.000 64834.000 161129.000 154000.000 521097.000 178064.000 359228.000
+155277.000 67001.000 62935.000 88283.000 156002.000 263639.000 227459.000
+State Counts ==================================END
+
+Output optimal policy with arrows:
+   ↘        →        ↓        ●        ●        ●        ↖
+   ↑        ↗        ↓        ↙        ●        ↗        ●
+   ↑        ●        ●        ↓        ●        ↗        ↑
+   ↖        ←        ●        ↘        →        ●        ↑
+   ↑        ↖        ●        →        ↘        →        ↗
+Optimal policy ==================================END
+
+
+The state value is close to that of the optimal policy of value iteration. But it is still not close enough.
+
