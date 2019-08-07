@@ -33,7 +33,7 @@ def on_policy__mc_control(first_visit):
     # iteration index
     i = 0
     # e-greedy params
-    epsilon = 0.05
+    epsilon = 0.01
     print("Initial policy : ")
     show_compare_to_real_optimal_policy(policy, relevant_S)
     while True:

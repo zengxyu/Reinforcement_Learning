@@ -101,7 +101,7 @@ def generate_one_episode(policy, s_start, a_start=None):
 
 def get_next_state_deviated(s, a):
     deviation = np.random.choice(a=deviations, p=deviation_probabilities)
-    moving_direction_deviated = moving_direction[(a + deviations[deviation]) % len(A)]
+    moving_direction_deviated = moving_direction[(a + deviation) % len(A)]
     s_attempt_next = (s[0] + moving_direction_deviated[0], s[1] + moving_direction_deviated[1])
     s_next = get_valid_state(attempt_s=s_attempt_next)
     return s_next

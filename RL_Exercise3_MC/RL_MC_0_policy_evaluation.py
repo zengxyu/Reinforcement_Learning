@@ -32,6 +32,7 @@ def policy_evaluation(first_visit):
     ep_length_list = []
     # store the total reward of each episode
     ep_reward_list = []
+    episodes_num = 10000
     for i in range(episodes_num):
         # record the whether it has occurred in this episode
         occurrence_record = np.zeros((H_grid, W_grid))
